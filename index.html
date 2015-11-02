@@ -15,7 +15,7 @@
 
 		<!-- Add attributes (angular directives) to this div 
 			to instantiate your application and set the controller -->
-		<div class="container" ng-app="sortApp">
+		<div class="container" ng-app="sortApp" ng-controller="mainController">
 
 
 			<h1>Who is UW paying the most?</h1>			
@@ -58,7 +58,12 @@
 				<tbody>
 
 					<!-- Create a table row for each person in your data object -->
-					
+					<tr ng-repeat="person in data | orderBy:sortType | filter:search">
+
+						<td>{{person.name}}</td>
+						<td>{{person.job_title}}</td>
+						<td>{{person.salary}}</td>
+					</tr>
 						
 						<!-- Create 3 <td> elements to display name, job_title, and salary -->
 						
